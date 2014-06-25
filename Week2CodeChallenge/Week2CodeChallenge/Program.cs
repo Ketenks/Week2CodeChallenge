@@ -123,38 +123,45 @@ namespace Week2CodeChallenge
             int vowelNum = 0;
             int consonantNum = 0;
             int specialCharNum = 0;
-            //string longestWord = "";
-            List<string> longestWordList = new List<string> { };
-            //string secondLongestWord = "";
-            List<string> secondLongestWordList = new List<string> { };
-           // string shortestWord = "                                                  ";
-            List<string> shortestWordList = new List<string> { };
-            string temp = " ";
-            List<string> holdingTank = new List<string> { };
-
+            string longestWord = inputListWords[0];
+            List<string> longestWordList = new List<string> { ""};
+            string shortestWord = inputListWords[0];
+            List<string> shortestWordList = new List<string> { ""};
+            
             //for loop to print longest word, shortest word
             for (int i = 0; i < inputListWords.Count; i++)
             {
-                for (int j = 1; j < inputListWords.Count; j++)
+                if (inputListWords[i].Length >= longestWord.Length)
                 {
-                    if (inputListWords[i].Length < inputListWords[j].Length)
-                    {
-                        temp = inputListWords[i];
-                        inputListWords[i] = inputListWords[j];
-                        inputListWords[j] = temp;
-                    }
+                    longestWord = inputListWords[i];
                 }
-                holdingTank.Add(temp);
             }
-            for (int i = 0; i < holdingTank.Count; i++)
+           for (int i = 0; i < inputListWords.Count; i++)
             {
-                if (holdingTank[0].Length == holdingTank[i].Length && holdingTank[0] != holdingTank[i])
+                if (inputListWords[i].Length <= shortestWord.Length)
                 {
-                    longestWordList.Add(holdingTank[i] + ", ");
+                    shortestWord = inputListWords[i];
                 }
             }
-
-
+           /* for (int i = 0; i < inputListWords.Count; i++)
+            {
+                if (longestWord.Length == inputListWords[i].Length)
+                {
+                    
+                    
+                     for (int j = 0; j < longestWordList.Count; j++)
+                     {
+                         
+                         if (longestWordList[j].ToUpper() != inputListWords[i].ToUpper())
+                            {
+                        longestWordList.Add(inputListWords[i]);
+                        
+                     }
+                          
+                   }
+                     
+                }
+            }*/
 
             //for loop to print number of: characters, words, vowels, consonants, and special characters
             for (int i = 0; i < input.Length; i += 1)
@@ -189,22 +196,22 @@ namespace Week2CodeChallenge
             Console.WriteLine("iv. Number of consonants: " + consonantNum);
             Console.WriteLine("v. Number of special characters: " + specialCharNum);
             //write that stupid dang EC all in one line
-            Console.Write("E.C. Longest word: ");
-            for (int i = 0; i < longestWordList.Count; i++)
+            Console.Write("E.C. Longest word: " + longestWord);
+            /*for (int i = 0; i < longestWordList.Count ; i++)
             {
-                Console.Write(longestWordList[i]);
+                Console.Write(longestWordList[i] + " | ");
             }
-           /* Console.Write(" | " + "Second Longest Word: ");
+            /*Console.Write(" | " + "Second Longest Word: ");
             for (int i = 0; i < secondLongestWordList.Count; i++)
             {
                 Console.Write(secondLongestWordList[i]);
             }*/
-            Console.Write(" | " + "Shortest Word: ");
-            for (int i = 0; i < shortestWordList.Count; i++)
+            Console.Write(" | " + "Shortest Word: " + shortestWord);
+            /*for (int i = 0; i < shortestWordList.Count / 2; i++)
             {
-                Console.Write(shortestWordList[i]);
-            }
-            Console.WriteLine("\n");
+                Console.Write(shortestWordList[i] + " | ");
+            }*/
+            Console.WriteLine("\n"); 
 
 
         }
