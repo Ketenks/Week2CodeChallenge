@@ -37,7 +37,7 @@ namespace Week2CodeChallenge
             //keeps console open
             Console.ReadKey();
         }
-        //BEING FUNCTION DECLARATION
+        //BEGIN FUNCTION DECLARATION
 
         //writing specific output for specific input on the basis of divisibility
         //i. If the number is divisible by 5, print out “Fizz”
